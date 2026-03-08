@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form-container">
+  <h2>Report Lost Item</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <label>Item Name</label>
+    {{ form.item_name }}
+
+    <label>Category</label>
+    {{ form.category }}
+
+    <label>Description</label>
+    {{ form.description }}
+
+    <label>Location Lost</label>
+    {{ form.location_lost }}
+
+    <label>Date Lost</label>
+    {{ form.date_lost }}
+
+    <label>Contact Info</label>
+    {{ form.contact }}
+
+    <label>Image</label>
+    {{ form.image }}
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}

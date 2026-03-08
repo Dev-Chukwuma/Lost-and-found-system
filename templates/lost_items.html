@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Lost Items</h2>
+
+{% if items %}
+    <div class="items-grid">
+        {% for item in items %}
+            <div class="item-card">
+                <p><strong>Item Name:</strong>{{ item.item_name }}</p>
+                <p><strong>Category:</strong> {{ item.category }}</p>
+                <p><strong>Location Found:</strong> {{ item.location_lost }}</p>
+                <p><strong>Date:</strong> {{ item.date_lost }}</p>
+                <p><strong>Item Image:</strong></p>
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="item image" width="200">
+                    {% else %}
+                    <p>No Image Uploaded</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No lost items reported yet.</p>
+{% endif %}
+
+{% endblock %}
